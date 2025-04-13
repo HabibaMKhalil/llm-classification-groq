@@ -39,50 +39,48 @@ echo "GROQ_API_KEY=your_key_here" > .env
 
 ## 🧠 Usage Examples
 
-Basic Classification
-from taming_llm import LLMClient
+### Basic Classification                                
+from taming_llm import LLMClient                                         
 
-client = LLMClient()
-result = client.classify_with_confidence(
-    "The battery life exceeded expectations",
-    categories=["Positive", "Neutral", "Negative"]
-)
-Custom Prompts
-python
-Copy
-analysis = client.complete(
-    client.create_structured_prompt(
-        text="Delivery took 3 weeks",
-        question="Extract shipping duration in days"
-    )
-)
+client = LLMClient()                                  
+result = client.classify_with_confidence(                                             
+    "The battery life exceeded expectations",                                                           
+    categories=["Positive", "Neutral", "Negative"]                                    
+) 
+
+### Custom Prompts                                
+analysis = client.complete(                               
+    client.create_structured_prompt(                       
+        text="Delivery took 3 weeks",                           
+        question="Extract shipping duration in days"                                                                                    
+    )                                                                        
+)                             
 
 
 ## 📊 Expected Output
 
-{
-  "category": "Positive",
-  "confidence": 0.9,
-  "reasoning": "Text contains strong positive sentiment"
-}
+{                                 
+  "category": "Positive",                                       
+  "confidence": 0.9,                                
+  "reasoning": "Text contains strong positive sentiment"                                  
+}                             
 
 
 ## 🛠️ Advanced Features
 
-Method	Description	Parameters
-classify_with_confidence()	Categorized text with confidence scoring	confidence_threshold=0.8
-create_structured_prompt()	Generates analysis-ready prompts	text, question
-analyze_confidence()	Interprets confidence levels	Raw API response
+### Method	Description	Parameters
+classify_with_confidence()	Categorized text with confidence scoring	confidence_threshold=0.8                          
+create_structured_prompt()	Generates analysis-ready prompts	text, question                        
+analyze_confidence()	Interprets confidence levels	Raw API response                          
 
 ## 🌐 Project Structure
 
-.
-├── taming_llm.py        # Core classification logic
-├── requirements.txt     # Dependencies
-├── .env.example         # API key template
-└── examples/            # Usage notebooks
-    ├── basic_usage.ipynb
-    └── advanced_analysis.ipynb
+├── taming_llm.py        # Core classification logic                          
+├── requirements.txt     # Dependencies                
+├── .env.example         # API key template                       
+└── examples/            # Usage notebooks                
+├── basic_usage.ipynb                         
+└── advanced_analysis.ipynb                            
 
 ## 🚨 Troubleshooting
 Common Issues:
